@@ -1,53 +1,54 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const { merge } = require("webpack-merge");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 
-module.exports = merge({
+module.exports = merge(
+  {
     module: {
-        rules: [
-            {
-                test: /\.js/,
-                loaders: ['babel-loader'],
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.vue$/,
-                loaders: ['vue-loader'],
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.less$/,
-                exclude: /node_modules/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'less-loader',
-                ],
-            },
-        ],
+      rules: [
+        {
+          test: /\.js/,
+          loaders: ["babel-loader"],
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.vue$/,
+          loaders: ["vue-loader"],
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.less$/,
+          exclude: /node_modules/,
+          use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+        },
+      ],
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'style.css',
-        }),
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin({
+        filename: "style.css",
+      }),
     ],
     resolve: {
-        extensions: ['.js', '.vue', '.less'],
+      extensions: [".js", ".vue", ".less"],
     },
-}, {
+  },
+  {
     context: __dirname,
-    entry: './src/index.js',
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js',
-        library: {
-            root: 'VueTags',
-            amd: 'vue-tags',
-            commonjs: 'vue-tags'
-        },
-        libraryTarget: 'umd',
+      path: path.resolve(__dirname, "dist"),
+      filename: "index.js",
+      library: {
+        root: "VueTags",
+        amd: "vue-tags",
+        commonjs: "vue-tags",
+      },
+      libraryTarget: "umd",
     },
     externals: {
-        vue: 'vue',
+      vue: "vue",
     },
-});
+  }
+);

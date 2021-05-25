@@ -1,8 +1,8 @@
-# vue-tags-component
+# rey-vue-tags-component
 
-[![Latest Version on NPM](https://img.shields.io/npm/v/vue-tags-component.svg?style=flat-square)](https://npmjs.com/package/vue-tags-component)
+[![Latest Version on NPM](https://img.shields.io/npm/v/vue-tags-component.svg?style=flat-square)](https://npmjs.com/package/rey-vue-tags-component)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![npm](https://img.shields.io/npm/dt/vue-tags-component.svg?style=flat-square)](https://www.npmjs.com/package/vue-tags-component)
+[![npm](https://img.shields.io/npm/dt/vue-tags-component.svg?style=flat-square)](https://www.npmjs.com/package/rey-vue-tags-component)
 
 The package contains a Vue.js component for adding and removing tags.
 
@@ -22,12 +22,13 @@ The package contains a Vue.js component for adding and removing tags.
 You can install the package via npm:
 
 ```sh
-$ npm install --save vue-tags-component
+$ npm install --save rey-vue-tags-component
 ```
+
 or yarn:
 
 ```sh
-$ yarn add vue-tags-component
+$ yarn add rey-vue-tags-component
 ```
 
 ## Usage
@@ -35,31 +36,31 @@ $ yarn add vue-tags-component
 The most common use case is to register the component globally:
 
 ```js
-import Vue from 'vue';
-import { VueTags } from 'vue-tags-component';
+import Vue from "vue";
+import { VueTags } from "rey-vue-tags-component";
 
-Vue.component('vue-tags', VueTags);
+Vue.component("vue-tags", VueTags);
 ```
 
 On your page you can now use html like this:
 
 ```html
 <vue-tags
-    :active="activeTags"
-    :all="allTags"
-    :element-count-for-start-arrow-scrolling="3"
-    :tab-index="1"
-    :tag-creation-enabled="true"
-    :colors-enabled="false"
-    :colors="colors"
-    :tag-color-default="'green'"
-    :tag-list-label="'Select an option'"
-    :placeholder="'Select an option'"
-    @on-tag-added="onTagAdded"
-    @on-tag-removed="onTagRemoved"
-    @on-tag-list-opened="onTagListOpened"
-    @on-tag-list-closed="onTagListClosed"
-    @on-tag-created="onTagCreated"
+  :active="activeTags"
+  :all="allTags"
+  :element-count-for-start-arrow-scrolling="3"
+  :tag-creation-enabled="true"
+  :colors-enabled="false"
+  :colors="colors"
+  :tag-color-default="'green'"
+  :tag-create-label="'Create'"
+  :tag-list-label="'Select an option'"
+  :placeholder="'Select an option'"
+  @on-tag-added="onTagAdded"
+  @on-tag-removed="onTagRemoved"
+  @on-tag-list-opened="onTagListOpened"
+  @on-tag-list-closed="onTagListClosed"
+  @on-tag-created="onTagCreated"
 />
 ```
 
@@ -67,12 +68,12 @@ All props and events are indicated in the example above. Tags should look like t
 
 ```json
 [
-    {
-        "id": 1,
-        "name": "Tag",
-        "slug": "tag (optional)",
-        "color": "#963dff (optional)"
-    }
+  {
+    "id": 1,
+    "name": "Tag",
+    "slug": "tag (optional)",
+    "color": "#963dff (optional)"
+  }
 ]
 ```
 
